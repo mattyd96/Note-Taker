@@ -1,2 +1,5 @@
 node_modules
 Assignment_info
+npm-debug.log
+.DS_Store
+/*.env
