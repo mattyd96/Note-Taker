@@ -27,7 +27,22 @@ app.post('/api/notes', (req, res) => {
     console.info('recieved POST request in api/notes');
     let note = req.body;
     note.id = uuidv4();
+
+    let notes = JSON.parse(fs.readFileSync('db/db.json'));
+    notes = [...notes, note];
+    fs.writeFileSync('./db/db.json', JSON.stringify(notes, null, 4));
+
     res.json(note);
+})
+
+app.delete('/api/notes/:id', (req, res) => {
+    console.info('recieved DELETE request in api/notes/id');
+    console.info(req.params.id);
+
+    let notes = JSON.parse(fs.readFileSync('db/db.json'));
+    notes = notes.filter(note => note.id !== req.params.id);
+    fs.writeFileSync('./db/db.json', JSON.stringify(notes, null, 4));
+    res.json(notes);
 })
 
 app.listen(PORT, () => {
