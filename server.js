@@ -5,7 +5,7 @@ const fs = require('fs');
 
 // app setup
 const app = express()
-const PORT = process.env.PORT || 3001
+const port = process.env.PORT || 3001
 
 // middleware
 app.use(express.json())
@@ -42,7 +42,7 @@ app.post('/api/notes', (req, res) => {
 
     //write new list to the db file
     fs.writeFileSync('./db/db.json', JSON.stringify(notes, null, 4));
-    
+
     //send note back to user end
     res.json(note);
 })
@@ -61,6 +61,6 @@ app.delete('/api/notes/:id', (req, res) => {
 })
 
 // listen
-app.listen(PORT, () => {
-    console.log(`Server start on port ${PORT}`)
+app.listen(port, () => {
+    console.log(`Server start on port ${port}`)
 })
