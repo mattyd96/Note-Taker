@@ -46,7 +46,9 @@ Then Navigate to your localhost:3001 in the browser.
 
 ## Live Site
 
-[Live Heroku app]()
+This app has been deployed to heroku as well.
+
+[Live Heroku app](https://vast-springs-72190.herokuapp.com/notes)
 
 ## License
 
