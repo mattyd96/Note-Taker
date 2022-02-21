@@ -60,6 +60,11 @@ app.delete('/api/notes/:id', (req, res) => {
     res.json(notes);
 })
 
+// wildcard
+app.get('/*', (req, res) => {
+    res.sendFile(path.join(__dirname, '/public/index.html'));
+})
+
 // listen
 app.listen(port, () => {
     console.log(`Server start on port ${port}`)
